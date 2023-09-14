@@ -1,0 +1,254 @@
+@import "fonts/fonts";
+@import "variables";
+
+* {
+	box-sizing: border-box;
+	outline: none
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background: $bg;
+	font-family: $font-regular;
+	color: $color-white;
+}
+
+* {
+	box-sizing: border-box;
+	outline: none
+}
+
+*{
+	scrollbar-width: thin;
+	scrollbar-color: $bg;
+}
+*::-webkit-scrollbar {
+	width: 3px;
+	height: 3px;
+}
+*::-webkit-scrollbar-track {
+	background: $bg;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: $bg;
+	border: 3px solid $color-blue;
+}
+
+.content{
+	width: 100%;
+	max-width: 1510px;
+	margin: auto;
+	padding: $offset-24;
+	@media(max-width: 680px) {
+		padding: $offset-12;
+	}
+}
+
+.bg-block{
+	background: $color-black;
+	border-radius: $border-radius;
+}
+
+.side{
+	display: flex;
+	gap: $offset-24;
+	@media(max-width: 991px){
+		flex-direction: column;
+	}
+	.left{
+		max-width: 258px;
+		min-width: 258px;
+		width: 19%;
+		@media(max-width: 991px){
+			max-width: 100%;
+			width: 100%;
+		}
+		.logo{
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 50px;
+			padding: 0 $offset-12;
+			margin-bottom: $offset-30;
+			img{
+				max-width: 100%;
+			}
+		}
+		.info-all{
+			padding: $offset-32 $offset-24;
+			.progress{
+				width: 100%;
+				overflow: hidden;
+				border-radius: $border-radius;
+				display: flex;
+				align-items: center;
+				font-family: $font-bold;
+				.red{
+					background: $color-red;
+					line-height: 56px;
+					text-align: center;
+				}
+				.green{
+					background: $color-green;
+					line-height: 56px;
+					text-align: center;
+				}
+				@media(max-width: 991px){
+					.red, .green{
+						line-height: 24px;
+					}
+				}
+			}
+		}
+	}
+	.right{
+		width: 100%;
+		max-width: 1182px;
+		@media(max-width: 1875px){
+			width: calc(100% - 19%);
+		}
+		@media(max-width: 991px){
+			width: 100%;
+		}
+		.contragent-list{
+			position: relative;
+			overflow: hidden;
+			padding: $offset-24 $offset-30;
+			max-width: 1182px;
+			width: 100%;
+			overflow-x: auto;
+			@media(max-width: 991px){
+				max-width: 100%;
+			}
+			&-empty{
+				line-height: 26px;
+				text-align: center;
+				width: 100%;
+				height: 774px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: $offset-30 0;
+				@media(max-width: 1252px){
+					height: 695px;
+				}
+				@media(max-width: 991px){
+					height: 500px;
+				}
+			}
+		}
+		.contragent-title{
+			color: $color-dark-grey;
+			margin-bottom: 22px;
+			display: flex;
+			column-gap: $offset-6;
+			line-height: 26px;
+			.day{
+				min-width: 56px;
+			}
+			.info {
+				display: flex;
+				flex: 1;
+				column-gap: $offset-6;
+				align-items: center;
+				padding: 0 $offset-24;
+				min-width: 1060px;
+			}
+			span {
+				display: block;
+			}
+			span.id{
+				max-width: 95px;
+				min-width: 95px;
+			}
+			span.name{
+				max-width: 133px;
+				min-width: 133px;
+			}
+			span.status{
+				max-width: 94px;
+				min-width: 94px;
+			}
+			span.visit{
+				max-width: 98px;
+				min-width: 98px;
+			}
+			span.revenue{
+				max-width: 110px;
+				min-width: 110px;
+			}
+			span.check{
+				max-width: 142px;
+				min-width: 142px;
+			}
+			span.bot{
+				max-width: 93px;
+				min-width: 93px;
+			}
+			span.sms{
+				max-width: 77px;
+				min-width: 77px;
+			}
+			span.player{
+				width: 118px;
+				@media(max-width: 991px){
+					flex: 0;
+					max-width: 100px;
+					min-width: 100px;
+				}
+			}
+		}
+		.contragent-more{
+			margin-top: 24px;
+			display: flex;
+			font-size: 16px;
+			justify-content: center;
+			align-items: center;
+			column-gap: 8px;
+			button{
+				width: 140px;
+			}
+		}
+	}
+}
+
+button.btn,
+a.btn{
+	text-decoration: none;
+	padding: 0 16px;
+	height: 42px;
+	font-size: 16px;
+	border-radius: $border-radius;
+	background: $color-btn-bg;
+	color: $color-white;
+	cursor: pointer;
+	border: none;
+	&:hover{
+		background: $color-btn-hover;
+	}
+	&:disabled{
+		opacity: .7;
+	}
+}
+
+input:invalid,
+input.invalid{
+	border: solid 1px $color-red;
+}
+.errorText{
+	display: none;
+}
+input:invalid ~ .errorText,
+input:invalid ~ .errorText ~ .errorText,
+input:invalid ~ .errorText ~ .errorText ~ .errorText,
+input.invalid ~ .errorText,
+input.invalid ~ .errorText ~ .errorText,
+input.invalid ~ .errorText ~ .errorText ~ .errorText{
+	display: block;
+	font-size: 12px;
+	margin-top: 5px;
+	color: $color-red;
+}
